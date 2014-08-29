@@ -1,8 +1,21 @@
 var express = require('express'),
     config = require('./config'),
     Router = require('./router'),
-    app = express();
+    mongoose = require('mongoose'),
+    app = express(),
+    logger = require('./modules/logger'),
+    db = mongoose.connection;
 
-app.use(new Router().get());
+mongoose.connect(config.connectionString);
 
-app.listen(config.port);
+db.on('error', logger.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    logger.log('Connected to MongoDB');
+
+    require('./bootstrap/database');
+
+    app.use(new Router().get());
+    app.listen(config.port, function(){
+        logger.log('Express: Started at port %s', config.port);
+    });
+});
