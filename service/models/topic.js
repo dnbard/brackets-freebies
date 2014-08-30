@@ -2,9 +2,10 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     uuid = require('node-uuid');
 
-var TypeSchema = new Schema({
+var TopicSchema = new Schema({
     _id: { type: String, index: true, default: uuid.v1() },
-    typeId: { type: String, index: true, required: true }
+    name: { type: String, index: true, required: true },
+    icon: String
 });
 
-mongoose.model('types', TypeSchema);
+mongoose.model('topics', TopicSchema);
