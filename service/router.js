@@ -26,6 +26,7 @@ ApplicationRouter.prototype.middleware = function(){
 ApplicationRouter.prototype.routing = function(){
     this.router.post('/topic', topics.postTopic);
     this.router.get('/topic/:id/documents', topics.getDocumentsByTopic);
+    this.router.post('/topic/:id/document', topics.postDocumentInTopic);
 
     this.router.get('/topics', topics.getTopics);
 }

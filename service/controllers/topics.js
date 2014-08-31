@@ -32,7 +32,7 @@ function postTopic(req, res){
                 return res.status(500).send({ error: err });
             }
 
-            res.send({ topic: topic });
+            res.send(topic);
         });
     }
 }
@@ -45,7 +45,7 @@ function getDocumentsByTopic(req, res){
     }
 
     Document.find({topicId : topicId})
-        .select({ name: 1, link: 1, _id: 0 })
+        .select({ name: 1, link: 1, _id: 0, icon: 1 })
         .lean()
         .exec(function(err, documents){
             if (err){
@@ -56,8 +56,37 @@ function getDocumentsByTopic(req, res){
         });
 }
 
+function postDocumentInTopic(req, res){
+    var topicId = req.params.id;
+
+    if (!topicId){
+        return res.status(400).send({error: 'Invalid topic id'});
+    } else if (!req.body.link){
+        return res.status(400).send({error: 'Invalid document link'});
+    } else if (!req.body.name){
+        return res.status(400).send({error: 'Invalid document name'});
+    }
+
+    var document = new Document({
+        _id: uuid.v4(),
+        link: req.body.link,
+        name: req.body.name,
+        icon: req.body.icon || null,
+        topicId: topicId
+    });
+
+    document.save(function(err, document){
+        if (err){
+            return res.status(500).send({ error: err });
+        }
+
+        res.send(document);
+    });
+}
+
 module.exports = {
     getTopics: getTopics,
     postTopic: postTopic,
-    getDocumentsByTopic: getDocumentsByTopic
+    getDocumentsByTopic: getDocumentsByTopic,
+    postDocumentInTopic: postDocumentInTopic
 };
