@@ -3,9 +3,9 @@ var mongoose = require('mongoose'),
     uuid = require('node-uuid');
 
 var DocumentSchema = new Schema({
-    _id: { type: String, index: true, default: uuid.v1() },
+    _id: { type: String, index: true, default: uuid.v4() },
     link: { type: String, required: true },
     topicId: { type: String, index: true, required: true }
 });
 
-mongoose.model('documents', DocumentSchema);
+mongoose.model('document', DocumentSchema);

@@ -1,3 +1,5 @@
+require('./bootstrap/database');
+
 var express = require('express'),
     config = require('./config'),
     Router = require('./router'),
@@ -6,13 +8,11 @@ var express = require('express'),
     logger = require('./modules/logger'),
     db = mongoose.connection;
 
-mongoose.connect(config.connectionString);
+mongoose.connect(config.connectionString)
 
 db.on('error', logger.error.bind(console, 'connection error:'));
 db.once('open', function() {
     logger.log('Connected to MongoDB');
-
-    require('./bootstrap/database');
 
     app.use(new Router().get());
     app.listen(config.port, function(){

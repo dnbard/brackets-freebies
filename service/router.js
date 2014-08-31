@@ -1,6 +1,7 @@
 var express = require('express'),
     config = require('./config'),
     morgan = require('morgan'),
+    bodyParser = require('body-parser'),
     topics = require('./controllers/topics');
 
 function ApplicationRouter(){
@@ -15,9 +16,16 @@ ApplicationRouter.prototype.init = function(express){
 
 ApplicationRouter.prototype.middleware = function(){
     this.router.use(morgan(config.env === 'development'? 'dev' : 'default'));
+
+    this.router.use(bodyParser.urlencoded({ extended: false }));
+    this.router.use(bodyParser.json());
+
+    this.router.use(require('./modules/auth'));
 }
 
 ApplicationRouter.prototype.routing = function(){
+    this.router.post('/topic', topics.postTopic);
+
     this.router.get('/topics', topics.getTopics);
 }
 
