@@ -17,5 +17,9 @@
     "express": "^4.8.6",
     "morgan": "^1.2.3",
     "node-uuid": "^1.4.1"
+  },
+  "devDependencies": {
+    "del": "^0.1.2",
+    "gulp": "^3.8.7"
   }
 }
