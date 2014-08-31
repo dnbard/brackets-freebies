@@ -7,6 +7,8 @@ var DocumentSchema = new Schema({
     link: { type: String, required: true },
     name: { type: String, required: true },
     icon: String,
+    description: String,
+    tags: { type: [String], index: true },
     topicId: { type: String, index: true, required: true }
 });
 
