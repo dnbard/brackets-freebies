@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
     uuid = require('node-uuid'),
-    Topic = mongoose.model('topic');
+    Topic = mongoose.model('topic'),
+    Document = mongoose.model('document');
 
 function getTopics(req, res){
     Topic.find({})
@@ -28,21 +29,35 @@ function postTopic(req, res){
 
         topic.save(function(err, topic){
             if (err){
-                return res.status(500).send({
-                    error: err,
-                    body: req.body
-                });
+                return res.status(500).send({ error: err });
             }
 
-            res.send({
-                topic: topic,
-                body: res.body
-            });
+            res.send({ topic: topic });
         });
     }
 }
 
+function getDocumentsByTopic(req, res){
+    var topicId = req.params.id;
+
+    if (!topicId){
+        return res.status(400).send({error: 'Invalid topic id'});
+    }
+
+    Document.find({topicId : topicId})
+        .select({ name: 1, link: 1, _id: 0 })
+        .lean()
+        .exec(function(err, documents){
+            if (err){
+                return res.status(500).send({error: err});
+            }
+
+            res.send(documents);
+        });
+}
+
 module.exports = {
     getTopics: getTopics,
-    postTopic: postTopic
+    postTopic: postTopic,
+    getDocumentsByTopic: getDocumentsByTopic
 };
