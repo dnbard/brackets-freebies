@@ -9,7 +9,9 @@ var DocumentSchema = new Schema({
     icon: String,
     description: String,
     tags: { type: [String], index: true },
-    topicId: { type: String, index: true, required: true }
+    topicId: { type: String, index: true, required: true },
+    timestamp: { type: Date, index: true },
+    isApproved: { type: Boolean, index: true}
 });
 
 mongoose.model('document', DocumentSchema);

@@ -74,7 +74,9 @@ function postDocumentInTopic(req, res){
         icon: req.body.icon || null,
         description: req.body.description || null,
         tags: req.body.tags || null,
-        topicId: topicId
+        topicId: topicId,
+        isApproved: true,
+        timestamp: new Date()
     });
 
     document.save(function(err, document){
