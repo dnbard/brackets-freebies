@@ -25,8 +25,12 @@
 
 .ext_freebies #btnFreebiesClose{
     position: absolute;
-    right: 10px;
     top: 8px;
+    border-radius: 50%;
+    padding-left: 9px;
+    padding-right: 9px;
+    right: 0px;
+    cursor: pointer;
 }
 
 .fb-sidebar{
@@ -37,23 +41,20 @@
 }
 
 .fb-sidebar_topic{
-    border: 1px solid #c3c6c5;
     padding: 4px 8px;
-    border-radius: 2px;
     cursor: pointer;
-    margin-bottom: 2px;
     transition: 0.25s all;
     position: relative;
-    color: #333333;
+    color: #288cbf;
 }
 
-.fb-sidebar_topic:hover, .fb-sidebar_topic.selected{
-    background: #288edf;
-    color: white;
+.fb-sidebar_topic:hover{
+    background: white;
 }
 
 .fb-sidebar_topic.selected{
-    border: 1px solid #288edf;
+    background: #288edf;
+    color: white;
 }
 
 .fb-sidebar_topic-name{
@@ -79,15 +80,70 @@
 .fb-documents{
     position: absolute;
     top: 0px;
-    left: 0px;
     margin-left: 250px;
-    padding: 10px 15px;
+    box-sizing: border-box;
+    padding: 2px 10px 2px 7px;
 }
 
 .fb-document{
     display: block;
     width: 100%;
-    border: 1px solid #c3c6c5;
-    border-radius: 2px;
+    margin-bottom: 4px;
     padding: 4px;
+    background: white;
+    margin-left: 2px;
+    margin-top: 2px;
+}
+
+.fb-document_title{
+    font-size: 14pt;
+    color: #288edf;
+    margin-bottom: 5px;
+}
+
+.fb-document_name{
+    padding-left: 2px;
+    padding-bottom: 1px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.fb-document_name:hover{
+    text-decoration: underline;
+}
+
+.fb-document_desc {
+    color: #959595;
+    font-size: 11pt;
+}
+
+.fb-document_tags{
+    padding: 5px 0 0 5px;
+}
+
+.fb-document_tag{
+    background: #288edf;
+    color: white;
+    padding: 0px 3px 0px 3px;
+    position: relative;
+    margin-right: 5px;
+    margin-left: 5px;
+    box-shadow: 1px 1px 1px gray;
+    transition: 0.25s all;
+    cursor: pointer;
+}
+
+.fb-document_tag:hover{
+    text-decoration: underline;
+}
+
+.fb-document_tag:before{
+    border-bottom: 9px solid transparent;
+    border-top: 8px solid transparent;
+    border-right: 8px solid #288edf;
+    content: "";
+    vertical-align: super;
+    position: absolute;
+    left: -8px;
+    transition: 0.25s all;
 }

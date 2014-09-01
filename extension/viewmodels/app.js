@@ -21,6 +21,14 @@ define(function(require, exports, module){
             });
         }
 
+        this.getField = function(obj, prop){
+            if (typeof obj != 'object' || typeof prop !== 'string'){
+                console.error('Invalid argument');
+            }
+
+            return obj[prop] || '';
+        }
+
         DAL.getTopics().success(function(data){
             self.topics(_.sortBy(data, function(el){
                 return el.name;

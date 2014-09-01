@@ -20,8 +20,13 @@
             </div>
             <div class="fb-documents" data-bind="foreach: documents">
                 <div class="fb-document">
-                    <div class="fb-document_name" data-bind="text: name"></div>
-                    <div class="fb-document_desc" data-bind="text: description"></div>
+                    <div class="fb-document_title">
+                        <span class="fb-document_name" data-bind="text: $parent.getField($data, 'name')"></span>
+                    </div>
+                    <div class="fb-document_desc" data-bind="text: $parent.getField($data, 'description')"></div>
+                    <div class="fb-document_tags" data-bind="foreach: tags">
+                        <span class="fb-document_tag" data-bind="text: $data"></span>
+                    </div>
                 </div>
             </div>
         </div>
