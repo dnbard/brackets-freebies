@@ -4,5 +4,8 @@
         <button id="btnFreebiesClose" class="dialog-button btn primary" data-button-id="ok">X</button>
     </div>
     <div class="modal-body">
+        <div data-bind="foreach: topics">
+            <div data-bind="text: name"></div>
+        </div>
     </div>
 </div>
