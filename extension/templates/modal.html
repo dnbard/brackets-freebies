@@ -1,7 +1,10 @@
 <div class="ext_freebies modal">
     <div class="modal-body">
         <div class="modal-header">
-            <h3>Freebies</h3>
+            <h3>
+                <span class="ion-images"></span>
+                <span>Freebies</span>
+            </h3>
             <button id="btnFreebiesClose" class="dialog-button btn primary" data-button-id="ok">X</button>
         </div>
         <div class="fb-page" data-bind="if: page() === 'default'">
@@ -21,11 +24,16 @@
             <div class="fb-documents" data-bind="foreach: documents">
                 <div class="fb-document">
                     <div class="fb-document_title">
-                        <span class="fb-document_name" data-bind="text: $parent.getField($data, 'name')"></span>
+                        <span class="fb-document_name" data-bind="text: $parent.getField($data, 'name'), attr:{title: 'Open ' + $parent.getField($data, 'name')}"></span>
+                        <span class="ion-star" title="Add to Favorites"></span>
+                        <span class="ion-link" title="Open in Browser"></span>
                     </div>
                     <div class="fb-document_desc" data-bind="text: $parent.getField($data, 'description')"></div>
                     <div class="fb-document_tags" data-bind="foreach: tags">
-                        <span class="fb-document_tag" data-bind="text: $data"></span>
+                        <span class="fb-document_tag">
+                            <span class="ion-ios7-pricetag-outline"></span>
+                            <span data-bind="text: $data"></span>
+                        </span>
                     </div>
                 </div>
             </div>

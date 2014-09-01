@@ -2,8 +2,9 @@
     font-size: 18pt;
 }
 
-.ext-freebies_logo{
+#ext-freebies_logo{
     cursor: pointer;
+    font-size: 18pt;
 }
 
 .ext_freebies{

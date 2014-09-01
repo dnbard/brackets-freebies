@@ -5,10 +5,8 @@ define(function(require, exports, module){
     function init(){
         var imagePath = config.path + 'images/icon.png';
 
-        icon = $('<a id="ext-freebies_logo"></a>');
+        icon = $('<a id="ext-freebies_logo" class="ion-images"></a>');
 
-        //icon.css('background', 'url(' + config.path + 'images/icon.png)');
-        icon.css('background', 'red');
         icon.appendTo($("#main-toolbar .buttons"));
     }
 
