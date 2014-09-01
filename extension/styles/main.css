@@ -1,0 +1,14 @@
+.ext-freebies_logo{
+    cursor: pointer;
+}
+
+.ext_freebies{
+    height: 90%;
+    width: 90%;
+}
+
+.ext_freebies #btnFreebiesClose{
+    position: absolute;
+    right: 10px;
+    top: 8px;
+}

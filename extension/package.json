@@ -1,0 +1,13 @@
+{
+    "name": "dnbard.freebies",
+    "title": "Freebies",
+    "description": "A lot of free and useful stuff for web developers and designers.",
+    "homepage": "https://github.com/dnbard/brackets-freebies",
+    "version": "0.1.0",
+    "author": "Alex Bardanov",
+    "license": "MIT",
+    "engines": {
+        "brackets": ">=0.32.0"
+    },
+    "keywords": ["photo", "components", "free", "UI", "UX"]
+}
