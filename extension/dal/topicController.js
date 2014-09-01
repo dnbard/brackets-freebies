@@ -10,6 +10,16 @@ define(function(require, exports, module){
                 url: host + 'topics'
             });
         }
+
+        this.getDocumentsByTopic = function(id){
+            if (typeof id !== 'string' || id.length === 0){
+                throw new Error('Invalid argument');
+            }
+
+            return base.call({
+                url: host + 'topic/' + id + '/documents'
+            });
+        }
     }
 
     TopicController.prototype = BaseController;

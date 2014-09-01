@@ -11,9 +11,14 @@ define(function(require, exports, module){
         this.page = ko.observable(defaultPage);
 
         this.topic = ko.observable(null);
+        this.documents = ko.observableArray([]);
 
         this.selectTopic = function(topic){
             self.topic(topic);
+
+            DAL.getDocumentsByTopic(topic._id).success(function(documents){
+                self.documents(documents);
+            });
         }
 
         DAL.getTopics().success(function(data){

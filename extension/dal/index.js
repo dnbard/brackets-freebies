@@ -20,8 +20,6 @@ define(function(require, exports, module){
                 self[name] = handler;
             });
         });
-
-        console.log(this);
     }
 
     module.exports = new DALService();

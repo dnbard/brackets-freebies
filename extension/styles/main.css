@@ -30,7 +30,7 @@
 }
 
 .fb-sidebar{
-    height: 92%;
+    height: 100%;
     border-right: 1px solid #c3c6c5;
     padding: 2px;
     width: 250px;
@@ -69,4 +69,25 @@
     top: 8px;
     background: white;
     border-radius: 50%;
+}
+
+.fb-page{
+    position: relative;
+    height: 92%;
+}
+
+.fb-documents{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-left: 250px;
+    padding: 10px 15px;
+}
+
+.fb-document{
+    display: block;
+    width: 100%;
+    border: 1px solid #c3c6c5;
+    border-radius: 2px;
+    padding: 4px;
 }
