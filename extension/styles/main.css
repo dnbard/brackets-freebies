@@ -1,3 +1,7 @@
+.ext_freebies .ion{
+    font-size: 18pt;
+}
+
 .ext-freebies_logo{
     cursor: pointer;
 }
@@ -40,6 +44,7 @@
     margin-bottom: 2px;
     transition: 0.25s all;
     position: relative;
+    color: #333333;
 }
 
 .fb-sidebar_topic:hover, .fb-sidebar_topic.selected{
@@ -52,13 +57,8 @@
 }
 
 .fb-sidebar_topic-name{
+    margin-left: 4px;
     font-size: 14pt;
-    color: #222222;
-}
-
-.fb-sidebar_topic:hover .fb-sidebar_topic-name,
-.fb-sidebar_topic.selected .fb-sidebar_topic-name{
-    color: white;
 }
 
 .fb-sidebar_topic-selected{
@@ -66,7 +66,7 @@
     height: 16px;
     position: absolute;
     right: 8px;
-    top: 6px;
+    top: 8px;
     background: white;
     border-radius: 50%;
 }

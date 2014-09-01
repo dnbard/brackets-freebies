@@ -1,5 +1,6 @@
 define(function(require, exports, module){
     var ko = require('../vendor/knockout'),
+        _ = require('../vendor/lodash'),
         DAL = require('../dal/index'),
         defaultPage = 'default';
 
@@ -16,7 +17,9 @@ define(function(require, exports, module){
         }
 
         DAL.getTopics().success(function(data){
-            self.topics(data);
+            self.topics(_.sortBy(data, function(el){
+                return el.name;
+            }));
         });
     }
 

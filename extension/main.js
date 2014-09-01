@@ -5,7 +5,7 @@ define(function (require, exports, module) {
 
     ExtensionUtils.loadStyleSheet(module, 'styles/main.css');
 
-    //http://ionicons.com/ - list of icons
+    //list of icons - http://ionicons.com/
     ExtensionUtils.loadStyleSheet(module, 'http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css');
 
     iconService.init();
