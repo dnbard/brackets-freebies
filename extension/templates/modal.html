@@ -1,11 +1,22 @@
 <div class="ext_freebies modal">
-    <div class="modal-header">
-        <h3>Freebies</h3>
-        <button id="btnFreebiesClose" class="dialog-button btn primary" data-button-id="ok">X</button>
-    </div>
     <div class="modal-body">
-        <div data-bind="foreach: topics">
-            <div data-bind="text: name"></div>
+        <div class="modal-header">
+            <h3>Freebies</h3>
+            <button id="btnFreebiesClose" class="dialog-button btn primary" data-button-id="ok">X</button>
         </div>
+        <!-- ko if: page() === 'default' -->
+        <div class="fb-sidebar">
+            <div class="fb-sidebar_topic">
+                <span class="fb-sidebar_topic-name">Favorites</span>
+            </div>
+            <!-- ko foreach: topics -->
+            <div class="fb-sidebar_topic" data-bind="css:{selected: $parent.topic() === $data}, click: $parent.selectTopic">
+                <span class="ion ion-android-image"></span>
+                <span class="fb-sidebar_topic-name" data-bind="text: name"></span>
+                <div class="fb-sidebar_topic-selected" data-bind="visible: $parent.topic() === $data"></div>
+            </div>
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
     </div>
 </div>

@@ -5,10 +5,68 @@
 .ext_freebies{
     height: 90%;
     width: 90%;
+    overflow: hidden !important;
+}
+
+.ext_freebies .modal-body{
+    max-height: none;
+    height:100%;
+    padding: 0 15px;
+}
+
+.ext_freebies .modal-header{
+    background: transparent;
+    position: relative;
 }
 
 .ext_freebies #btnFreebiesClose{
     position: absolute;
     right: 10px;
     top: 8px;
+}
+
+.fb-sidebar{
+    height: 92%;
+    border-right: 1px solid #c3c6c5;
+    padding: 2px;
+    width: 250px;
+}
+
+.fb-sidebar_topic{
+    border: 1px solid #c3c6c5;
+    padding: 4px 8px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-bottom: 2px;
+    transition: 0.25s all;
+    position: relative;
+}
+
+.fb-sidebar_topic:hover, .fb-sidebar_topic.selected{
+    background: #288edf;
+    color: white;
+}
+
+.fb-sidebar_topic.selected{
+    border: 1px solid #288edf;
+}
+
+.fb-sidebar_topic-name{
+    font-size: 14pt;
+    color: #222222;
+}
+
+.fb-sidebar_topic:hover .fb-sidebar_topic-name,
+.fb-sidebar_topic.selected .fb-sidebar_topic-name{
+    color: white;
+}
+
+.fb-sidebar_topic-selected{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    background: white;
+    border-radius: 50%;
 }
