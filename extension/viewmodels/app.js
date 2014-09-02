@@ -4,7 +4,7 @@ define(function(require, exports, module){
         DAL = require('../dal/index'),
         defaultPage = 'default';
 
-    function AppViewModel(){
+    function AppViewModel(dialog){
         var self = this;
 
         this.topics = ko.observableArray([]);
@@ -27,6 +27,11 @@ define(function(require, exports, module){
             }
 
             return obj[prop] || '';
+        }
+
+        this.close = function(){
+            dialog.remove();
+            $('.modal-wrapper').remove();
         }
 
         DAL.getTopics().success(function(data){

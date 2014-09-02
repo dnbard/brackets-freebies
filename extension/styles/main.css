@@ -27,11 +27,14 @@
 .ext_freebies #btnFreebiesClose{
     position: absolute;
     top: 8px;
-    border-radius: 50%;
-    padding-left: 9px;
-    padding-right: 9px;
     right: 0px;
     cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+.ext_freebies #btnFreebiesClose:hover{
+    color: #288edf;
 }
 
 .fb-sidebar{
