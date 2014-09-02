@@ -7,6 +7,8 @@ define(function(require, exports, module){
     function AppViewModel(dialog){
         var self = this;
 
+        this.dialog = dialog;
+
         this.topics = ko.observableArray([]);
         this.page = ko.observable(defaultPage);
 
@@ -29,16 +31,22 @@ define(function(require, exports, module){
             return obj[prop] || '';
         }
 
-        this.close = function(){
-            dialog.remove();
-            $('.modal-wrapper').remove();
-        }
-
         DAL.getTopics().success(function(data){
             self.topics(_.sortBy(data, function(el){
                 return el.name;
             }));
         });
+    }
+
+    AppViewModel.prototype.close = function(){
+        this.dialog.remove();
+        $('.modal-wrapper').remove();
+    }
+
+    AppViewModel.prototype.reload = function(){
+        this.page(defaultPage);
+        this.documents([]);
+        this.topic(null);
     }
 
     module.exports = AppViewModel;

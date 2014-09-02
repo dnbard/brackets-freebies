@@ -5,10 +5,11 @@
                 <span class="ion-images"></span>
                 <span>Freebies</span>
                 <span>
-                    <a href="https://github.com/dnbard/brackets-freebies" class="ion-star"></a>
+                    <button href="https://github.com/dnbard/brackets-freebies" title="Star this extension at GitHub!" class="button-custom ion-star"></button>
                 </span>
             </h3>
-            <button id="btnFreebiesClose" class="ion-close" data-bind="click: close"></button>
+            <button id="btnFreebiesReload" class="ion-loop" title="Reload extension" data-bind="click: reload"></button>
+            <button id="btnFreebiesClose" class="ion-close" title="Close extension" data-bind="click: close"></button>
         </div>
         <div class="fb-page" data-bind="if: page() === 'default'">
             <div class="fb-sidebar">
@@ -28,8 +29,8 @@
                 <div class="fb-document">
                     <div class="fb-document_title">
                         <span class="fb-document_name" data-bind="text: $parent.getField($data, 'name'), attr:{title: 'Open ' + $parent.getField($data, 'name')}"></span>
-                        <span class="ion-star" title="Add to Favorites"></span>
-                        <span class="ion-link" title="Open in Browser"></span>
+                        <button class="button-custom ion-star" title="Add to Favorites" data-bind="attr: {href: $data.link}"></button>
+                        <button class="button-custom ion-link" title="Open in Browser" data-bind="attr: {href: $data.link}"></button>
                     </div>
                     <div class="fb-document_desc" data-bind="text: $parent.getField($data, 'description')"></div>
                     <div class="fb-document_tags" data-bind="foreach: tags">
