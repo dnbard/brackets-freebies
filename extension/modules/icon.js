@@ -8,6 +8,7 @@ define(function(require, exports, module){
         icon = $('<a id="ext-freebies_logo" class="ion-images"></a>');
 
         icon.appendTo($("#main-toolbar .buttons"));
+        setColor('#BBBBBB');
     }
 
     function click(handler){
@@ -16,6 +17,16 @@ define(function(require, exports, module){
         }
 
         icon.on('click', handler);
+    }
+
+    function setColor(color){
+        if (typeof color !== 'string'){
+            throw new Error('Invalid argument');
+        } else if (!icon){
+            throw new Error('Icon isn\'t initialized');
+        }
+
+        icon.css('color', color);
     }
 
     exports.init = init;
