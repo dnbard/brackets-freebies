@@ -85,6 +85,11 @@
     color: white;
 }
 
+.fb-sidebar_topic .ion{
+    width: 30px;
+    text-align: center;
+}
+
 .fb-sidebar_topic-name{
     margin-left: 4px;
     font-size: 14pt;

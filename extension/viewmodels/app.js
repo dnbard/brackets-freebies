@@ -42,6 +42,10 @@ define(function(require, exports, module){
             return obj[prop] || '';
         }
 
+        this.getIcon = function(document){
+            return document.icon || 'ion-android-image';
+        }
+
         function iframeResize(){
             setTimeout(function(){
                 $('.iframe-document').css('height', $('.fb-page').css('height'));
