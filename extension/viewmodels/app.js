@@ -18,6 +18,8 @@ define(function(require, exports, module){
 
         this.document = ko.observable(null);
 
+        this.previousTopic = ko.observable(null);
+
         this.selectTopic = function(topic){
             self.page(defaultPage);
             self.topic(topic);
@@ -28,6 +30,7 @@ define(function(require, exports, module){
         }
 
         this.selectDocument = function(document){
+            self.previousTopic(self.topic());
             self.topic(null);
             self.document(document);
             self.page(iframePage);
@@ -46,9 +49,18 @@ define(function(require, exports, module){
             return document.icon || 'ion-android-image';
         }
 
+        this.breadcrumbsClick = function(){
+            self.topic(self.previousTopic());
+            self.page(defaultPage);
+
+            self.previousTopic(null);
+            self.document(null);
+        }
+
         function iframeResize(){
             setTimeout(function(){
-                $('.iframe-document').css('height', $('.fb-page').css('height'));
+                var heigth = ($('.fb-page').css('height').replace('px', '') - 30) + 'px';
+                $('.iframe-document').css('height', heigth);
             }, 10);
         }
 
@@ -69,6 +81,7 @@ define(function(require, exports, module){
         this.documents([]);
         this.topic(null);
         this.document(null);
+        this.previousTopic(null);
     }
 
     module.exports = AppViewModel;

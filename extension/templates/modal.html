@@ -3,7 +3,7 @@
         <div class="modal-header">
             <h3>
                 <span class="ion-images"></span>
-                <span>Freebies</span>
+                <span data-bind="click: reload">Freebies</span>
                 <span>
                     <a href="https://github.com/dnbard/brackets-freebies" title="Star this extension at GitHub!" class="button-custom ion-star"></a>
                 </span>
@@ -25,6 +25,10 @@
                     <div class="fb-sidebar_topic-selected" data-bind="visible: $parent.topic() === $data"></div>
                 </div>
                 <!-- /ko -->
+                <div class="fb-sidebar_topic">
+                    <span class="ion"></span>
+                    <span class="fb-sidebar_topic-name">Add document</span>
+                </div>
             </div>
             <!-- /ko -->
             <!-- ko if: page() === 'default' -->
@@ -47,6 +51,14 @@
             <!-- /ko -->
             <!-- ko if: page() === 'iframe' -->
             <div class="fb-iframe">
+                <div class="stats">
+                    <span class="fb-document_title fb-document_name" data-bind="text: previousTopic().name, click: breadcrumbsClick"></span>
+                    <span>::</span>
+                    <span class="fb-document_title">
+                        <span class="fb-document_name" data-bind="text: getField(document(), 'name')"></span>
+                        <button class="button-custom ion-star" title="Add to Favorites" data-bind="attr: {href: document().link}"></button>
+                    </span>
+                </div>
                 <iframe class="iframe-document" data-bind="attr:{src: document().link}" seamless="seamless"></iframe>
             </div>
             <!-- /ko -->

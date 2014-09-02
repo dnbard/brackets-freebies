@@ -185,3 +185,8 @@
 .iframe-document{
     width: 100%;
 }
+
+.fb-iframe .stats{
+    margin-top:4px;
+    margin-bottom:4px;
+}
