@@ -105,6 +105,14 @@
     border-radius: 50%;
 }
 
+.fb-sidebar_topic-count{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20pt;
+    text-align: right;
+}
+
 .fb-page{
     position: relative;
     height: 92%;

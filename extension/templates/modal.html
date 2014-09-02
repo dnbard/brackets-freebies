@@ -17,12 +17,12 @@
                 <div class="fb-sidebar_topic">
                     <span class="ion ion-ios7-star"></span>
                     <span class="fb-sidebar_topic-name">Favorites</span>
+                    <span class="fb-sidebar_topic-count" data-bind="text: favorites.list().length"></span>
                 </div>
                 <!-- ko foreach: topics -->
                 <div class="fb-sidebar_topic" data-bind="css:{selected: $parent.topic() === $data}, click: $parent.selectTopic">
                     <span class="ion" data-bind="css: $parent.getIcon($data)"></span>
                     <span class="fb-sidebar_topic-name" data-bind="text: name"></span>
-                    <div class="fb-sidebar_topic-selected" data-bind="visible: $parent.topic() === $data"></div>
                 </div>
                 <!-- /ko -->
                 <div class="fb-sidebar_topic">
@@ -36,7 +36,7 @@
                 <div class="fb-document">
                     <div class="fb-document_title">
                         <span class="fb-document_name" data-bind="text: $parent.getField($data, 'name'), attr:{title: 'Open ' + $parent.getField($data, 'name')}, click: $parent.selectDocument"></span>
-                        <button class="button-custom ion-star" title="Add to Favorites" data-bind="attr: {href: $data.link}"></button>
+                        <button class="button-custom ion-star" title="Add to Favorites" data-bind="click: $parent.favorites.add"></button>
                         <button class="button-custom ion-link" title="Open in Browser" data-bind="attr: {href: $data.link}"></button>
                     </div>
                     <div class="fb-document_desc" data-bind="text: $parent.getField($data, 'description')"></div>

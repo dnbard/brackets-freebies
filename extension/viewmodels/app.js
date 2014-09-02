@@ -1,6 +1,7 @@
 define(function(require, exports, module){
     var ko = require('../vendor/knockout'),
         _ = require('../vendor/lodash'),
+        FavoritesViewModel = require('./favorites'),
         DAL = require('../dal/index'),
         defaultPage = 'default',
         iframePage = 'iframe';
@@ -9,6 +10,7 @@ define(function(require, exports, module){
         var self = this;
 
         this.dialog = dialog;
+        this.favorites = new FavoritesViewModel();
 
         this.topics = ko.observableArray([]);
         this.page = ko.observable(defaultPage);
