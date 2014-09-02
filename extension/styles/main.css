@@ -105,7 +105,7 @@
     height: 92%;
 }
 
-.fb-documents{
+.fb-documents, .fb-iframe{
     top: 0px;
     box-sizing: border-box;
     padding: 2px 2px 2px 2px;
@@ -175,4 +175,8 @@
     position: absolute;
     left: -8px;
     transition: 0.25s all;
+}
+
+.iframe-document{
+    width: 100%;
 }
