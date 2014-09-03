@@ -45,7 +45,6 @@ function getDocumentsByTopic(req, res){
     }
 
     Document.find({topicId : topicId})
-        .select({ name: 1, link: 1, description: 1, tags: 1, _id: 0, icon: 1 })
         .lean()
         .exec(function(err, documents){
             if (err){

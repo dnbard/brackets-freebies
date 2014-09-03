@@ -11,7 +11,8 @@ var DocumentSchema = new Schema({
     tags: { type: [String], index: true },
     topicId: { type: String, index: true, required: true },
     timestamp: { type: Date, index: true },
-    isApproved: { type: Boolean, index: true}
+    isApproved: { type: Boolean, index: true},
+    screenshot: String
 });
 
 mongoose.model('document', DocumentSchema);
