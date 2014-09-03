@@ -17,9 +17,23 @@ function getTopics(req, res){
 }
 
 function postTopic(req, res){
-    var topic;
+    var topic, patch;
+
+    function reqEnd(err, topic){
+        if (err){
+            return res.status(500).send({ error: err });
+        }
+
+        res.send(topic);
+    }
 
     if (req.body._id){
+        patch = {};
+
+        if (req.body.name){ patch['name'] = req.body.name; }
+        if (req.body.icon){ patch['icon'] = req.body.icon; }
+
+        Topic.findByIdAndUpdate(req.body._id, patch).exec(reqEnd);
     } else {
         topic = new Topic({
             name: req.body.name,
@@ -27,13 +41,7 @@ function postTopic(req, res){
             _id: uuid.v4()
         });
 
-        topic.save(function(err, topic){
-            if (err){
-                return res.status(500).send({ error: err });
-            }
-
-            res.send(topic);
-        });
+        topic.save(reqEnd);
     }
 }
 
