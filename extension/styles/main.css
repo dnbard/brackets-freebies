@@ -1,3 +1,7 @@
+.ext_freebies{
+    font-family: Roboto, sans-serif;
+}
+
 .ext_freebies .ion{
     font-size: 18pt;
 }
@@ -118,6 +122,10 @@
     height: 92%;
 }
 
+.fb-documents{
+    text-align: center;
+}
+
 .fb-documents, .fb-iframe{
     top: 0px;
     box-sizing: border-box;
@@ -128,19 +136,35 @@
 }
 
 .fb-document{
-    display: block;
-    width: 100%;
     margin-bottom: 4px;
-    padding: 4px;
     background: white;
     margin-left: 2px;
     margin-top: 2px;
+    width: 350px;
+    display: inline-block;
+    padding-bottom: 5px;
+    position: relative;
 }
 
 .fb-document_title{
     font-size: 14pt;
     color: #288edf;
     margin-bottom: 5px;
+}
+
+.fb-document_image{
+    height: 250px;
+    width: 350px;
+    margin-bottom: 5px;
+}
+
+.fb-document_topic{
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    background: #fd504c;
+    color: #FFFFFF;
+    padding: 3px 7px;
 }
 
 .fb-document_name{

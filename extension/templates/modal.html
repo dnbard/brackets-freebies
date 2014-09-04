@@ -34,12 +34,14 @@
             <!-- ko if: page() === 'default' -->
             <div class="fb-documents" data-bind="foreach: documents">
                 <div class="fb-document">
+                    <div class="fb-document_image" data-bind="style:{backgroundImage: 'url(' + $data.screenshot + ')'}" />
+                    <div class="fb-document_topic" data-bind="text: $data.topicId"></div>
                     <div class="fb-document_title">
                         <span class="fb-document_name" data-bind="text: $parent.getField($data, 'name'), attr:{title: 'Open ' + $parent.getField($data, 'name')}, click: $parent.selectDocument"></span>
                         <button class="button-custom ion-star" title="Add to Favorites" data-bind="click: $parent.favorites.add"></button>
                         <button class="button-custom ion-link" title="Open in Browser" data-bind="attr: {href: $data.link}"></button>
                     </div>
-                    <div class="fb-document_desc" data-bind="text: $parent.getField($data, 'description')"></div>
+                    <div class="fb-document_desc" data-bind="text: $parent.getField($data, 'description'), visible: false"></div>
                     <div class="fb-document_tags" data-bind="foreach: tags">
                         <span class="fb-document_tag">
                             <span class="ion-ios7-pricetag-outline"></span>
